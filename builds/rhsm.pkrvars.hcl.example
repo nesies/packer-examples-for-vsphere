@@ -9,5 +9,7 @@
 */
 
 // Red Hat Subscription Manager Credentials
+
+rhsm_enabled   = true
 rhsm_username = "packer"
 rhsm_password = "VMw@re123!"

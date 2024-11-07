@@ -265,6 +265,8 @@ additional_packages = ["git", "make", "vim"]
 Edit the `config/redhat.pkrvars.hcl` file to configure the credentials for your Red Hat Subscription
 Manager account.
 
+You can also disable Red Hat Subscription Manger by setting `rhsm_enabled = false`.
+
 ```hcl linenums="1" title="config/rhsm.pkrvars.hcl" hl_lines="1"
 --8<-- "./builds/rhsm.pkrvars.hcl.example:10:100"
 ```
