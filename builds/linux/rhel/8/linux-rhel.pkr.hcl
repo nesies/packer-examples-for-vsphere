@@ -74,6 +74,7 @@ locals {
         lvm        = var.vm_disk_lvm
       })
       additional_packages = join(" ", var.additional_packages)
+      yum_repositories = var.yum_repositories
     })
   }
   http_ks_command = "inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg"

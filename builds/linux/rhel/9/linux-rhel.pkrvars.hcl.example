@@ -21,3 +21,16 @@ vm_firmware              = "efi-secure"
 iso_datastore_path       = "iso/linux/rhel"
 iso_content_library_item = "rhel-9.4-x86_64-dvd"
 iso_file                 = "rhel-9.4-x86_64-dvd.iso"
+
+yum_repositories = [
+  {
+    "name": "baseos",
+    "url": "http://url/path/to/repo",
+    "install": true
+  },
+  {
+    "name": "appstream",
+    "url": "http://url/path/to/repo",
+    "install": true
+  }
+]

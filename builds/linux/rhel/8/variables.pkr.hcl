@@ -459,3 +459,14 @@ variable "additional_packages" {
   description = "Additional packages to install."
   default     = []
 }
+
+// Additional yum repositories
+variable "yum_repositories" {
+  type        = list(object({
+    name = string
+    url = string
+    install = bool
+  }))
+  description = "Additional yum repositories"
+  default = []
+}
