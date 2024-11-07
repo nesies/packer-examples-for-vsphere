@@ -9,16 +9,35 @@
 */
 
 // Guest Operating System Metadata
-vm_guest_os_name    = "rhel"
-vm_guest_os_version = "9.5"
+vm_guest_os_name     = "rhel"
+vm_guest_os_version  = "9.4"
 
 // Virtual Machine Guest Operating System Setting
-vm_guest_os_type = "rhel9_64Guest"
+vm_guest_os_type      = "rhel9_64Guest"
 
 // Virtual Machine Hardware Settings
-vm_firmware = "efi-secure"
+vm_firmware              = "efi-secure"
 
 // Removable Media Settings
-iso_datastore_path       = "iso/linux/rhel/9/amd64"
-iso_content_library_item = "rhel-9.5-x86_64-dvd"
-iso_file                 = "rhel-9.5-x86_64-dvd.iso"
+iso_datastore_path       = "iso/linux/rhel"
+iso_content_library_item = "rhel-9.4-x86_64-dvd"
+iso_file                 = "rhel-9.4-x86_64-dvd.iso"
+
+// Additional GPG keys for rpm (mandatory if you add additional yum repositories)
+// rpm_gpg_keys = [
+//   "/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release"
+// ]
+
+// Additional yum repositories (mandatory if you disable rhsm)
+// yum_repositories = [
+//   {
+//     "name": "baseos",
+//     "url": "http://url/path/to/repo",
+//     "install": true
+//   },
+//   {
+//     "name": "appstream",
+//     "url": "http://url/path/to/repo",
+//     "install": true
+//   }
+// ]

@@ -7,7 +7,9 @@
     msg: "OS: {{ ansible_distribution }} {{ ansible_distribution_version }}"
 
 - name: Checking the Red Hat Subscription Manager status.
-  when: ansible_distribution == 'RedHat'
+  when:
+    - ansible_distribution == 'RedHat'
+    - rhsm_enabled
   ansible.builtin.command:
     cmd: subscription-manager status
   register: result

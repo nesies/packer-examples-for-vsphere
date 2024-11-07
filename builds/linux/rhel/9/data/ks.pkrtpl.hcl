@@ -54,6 +54,11 @@ timezone ${vm_guest_os_timezone}
 ### Partitioning
 ${storage}
 
+### Additional yum repositories
+%{ for repo in yum_repositories ~}
+repo --name ${repo.name} --baseurl ${repo.url} %{ if repo.install }--install%{ endif }
+%{ endfor ~}
+
 ### Modifies the default set of services that will run under the default runlevel.
 services --enabled=NetworkManager,sshd
 
@@ -68,9 +73,17 @@ skipx
 
 ### Post-installation commands.
 %post
+%{ for gpg_key in rpm_gpg_keys ~}
+rpm --import ${gpg_key}
+%{ endfor ~}
+%{ if rhsm_enabled ~}
 /usr/sbin/subscription-manager register --username ${rhsm_username} --password ${rhsm_password} --autosubscribe --force
 /usr/sbin/subscription-manager repos --enable "codeready-builder-for-rhel-9-x86_64-rpms"
+%{ else ~}
+dnf remove --assumeyes subscription-manager
+%{ endif ~}
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+
 dnf makecache
 dnf install -y sudo open-vm-tools perl
 %{ if additional_packages != "" ~}

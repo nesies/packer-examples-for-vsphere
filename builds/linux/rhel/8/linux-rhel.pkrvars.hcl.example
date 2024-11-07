@@ -22,3 +22,22 @@ vm_firmware = "efi-secure"
 iso_datastore_path       = "iso/linux/rhel/8/amd64"
 iso_content_library_item = "rhel-8.9-x86_64-dvd"
 iso_file                 = "rhel-8.9-x86_64-dvd.iso"
+
+// Additional GPG keys for rpm (mandatory if you add additional yum repositories)
+// rpm_gpg_keys = [
+//   "/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release"
+// ]
+
+// Additional yum repositories (mandatory if you disable rhsm)
+// yum_repositories = [
+//   {
+//     "name": "baseos",
+//     "url": "http://url/path/to/repo",
+//     "install": true
+//   },
+//   {
+//     "name": "appstream",
+//     "url": "http://url/path/to/repo",
+//     "install": true
+//   }
+// ]

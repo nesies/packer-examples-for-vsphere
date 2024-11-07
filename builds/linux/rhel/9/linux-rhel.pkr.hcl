@@ -55,6 +55,7 @@ locals {
       build_username           = var.build_username
       build_password           = var.build_password
       build_password_encrypted = var.build_password_encrypted
+      rhsm_enabled             = var.rhsm_enabled
       rhsm_username            = var.rhsm_username
       rhsm_password            = var.rhsm_password
       vm_guest_os_language     = var.vm_guest_os_language
@@ -75,6 +76,8 @@ locals {
         lvm        = var.vm_disk_lvm
       })
       additional_packages = join(" ", var.additional_packages)
+      rpm_gpg_keys = var.rpm_gpg_keys
+      yum_repositories = var.yum_repositories
     })
   }
   http_ks_command = "inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg"
@@ -232,6 +235,7 @@ build {
       "--extra-vars", "ansible_username=${var.ansible_username}",
       "--extra-vars", "ansible_key='${var.ansible_key}'",
       "--extra-vars", "enable_cloudinit=${var.vm_guest_os_cloudinit}",
+      "--extra-vars", "{\"rhsm_enabled\": ${var.rhsm_enabled}}",
     ]
   }
 

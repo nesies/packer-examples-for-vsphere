@@ -256,6 +256,24 @@ additional_packages = ["git", "make", "vim"]
 Edit the `config/redhat.pkrvars.hcl` file to configure the credentials for your Red Hat Subscription
 Manager account.
 
+You can also disable Red Hat Subscription Manger by setting `rhsm_enabled = false`.
+
+Then, you might want to enable repositories with:
+```
+yum_repositories = [
+  {
+     "name": "BaseOS",
+     "url": "http://url/to/baseos",
+     "install": true
+  }]
+```
+and add additional GPG keys for signed RPMs:
+```
+rpm_gpg_keys = [
+  "/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release"
+]
+```
+
 ```hcl linenums="1" title="config/rhsm.pkrvars.hcl" hl_lines="1"
 --8<-- "./builds/rhsm.pkrvars.hcl.example:10:100"
 ```
