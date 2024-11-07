@@ -225,6 +225,7 @@ build {
       "ANSIBLE_PYTHON_INTERPRETER=/usr/libexec/platform-python"
     ]
     extra_arguments = [
+      "${var.ansible_verbose}",
       "--extra-vars", "display_skipped_hosts=false",
       "--extra-vars", "build_username=${var.build_username}",
       "--extra-vars", "build_key='${var.build_key}'",

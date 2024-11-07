@@ -516,6 +516,7 @@ build {
       "ANSIBLE_CONFIG=${path.cwd}/ansible/ansible.cfg"
     ]
     extra_arguments = [
+      "${var.ansible_verbose}",
       "--extra-vars", "use_proxy=false",
       "--extra-vars", "ansible_connection=winrm",
       "--extra-vars", "ansible_user=${var.build_username}",

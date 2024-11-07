@@ -12,6 +12,13 @@
 
 // Red Hat Subscription Manager Credentials
 
+variable "ansible_verbose" {
+  type        = string
+  description = "Ansible verbose argument"
+  // default = "-vvv"
+  default = ""
+}
+
 variable "scc_email" {
   type        = string
   description = "The username to SUSE Customer Center."

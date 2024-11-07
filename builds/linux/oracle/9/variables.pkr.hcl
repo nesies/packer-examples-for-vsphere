@@ -10,6 +10,13 @@
 //  BLOCK: variable
 //  Defines the input variables.
 
+variable "ansible_verbose" {
+  type        = string
+  description = "Ansible verbose argument"
+  // default = "-vvv"
+  default = ""
+}
+
 // vSphere Credentials
 
 variable "vsphere_endpoint" {

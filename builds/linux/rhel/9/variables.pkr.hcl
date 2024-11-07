@@ -10,6 +10,20 @@
 //  BLOCK: variable
 //  Defines the input variables.
 
+variable "ansible_verbose" {
+  type        = string
+  description = "Ansible verbose argument"
+  // default = "-vvv"
+  default = ""
+}
+
+variable "ansible_verbose" {
+  type        = string
+  description = "Ansible verbose argument"
+  // default = "-vvv"
+  default = ""
+}
+
 // Red Hat Subscription Manager Credentials
 
 variable "rhsm_username" {

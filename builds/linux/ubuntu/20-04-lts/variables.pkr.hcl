@@ -12,6 +12,13 @@
 
 // vSphere Credentials
 
+variable "ansible_verbose" {
+  type        = string
+  description = "Ansible verbose argument"
+  // default = "-vvv"
+  default = ""
+}
+
 variable "vsphere_endpoint" {
   type        = string
   description = "The fully qualified domain name or IP address of the vCenter Server instance."
