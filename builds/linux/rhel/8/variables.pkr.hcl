@@ -460,6 +460,13 @@ variable "additional_packages" {
   default     = []
 }
 
+// Additional rpm gpg keys
+variable "rpm_gpg_keys" {
+  type        = list(string)
+  description = "Additional rpm gpg keys"
+  default = []
+}
+
 // Additional yum repositories
 variable "yum_repositories" {
   type        = list(object({

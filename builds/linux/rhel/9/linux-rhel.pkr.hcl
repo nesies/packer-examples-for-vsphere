@@ -74,6 +74,7 @@ locals {
         lvm        = var.vm_disk_lvm
       })
       additional_packages = join(" ", var.additional_packages)
+      rpm_gpg_keys = var.rpm_gpg_keys
       yum_repositories = var.yum_repositories
     })
   }
