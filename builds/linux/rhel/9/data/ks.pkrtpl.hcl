@@ -72,6 +72,12 @@ skipx
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 dnf makecache
 dnf install -y sudo open-vm-tools perl
+# when create VM from Template, allow passing network/hostname/etc config
+vmware-toolbox-cmd config set deployPkg enable-customization true
+# allow to execute custom script at first boot: 
+# eg. deploy a local user with a password/ssh authorized_keys
+vmware-toolbox-cmdb deployPkg enable-custom-scripts true
+
 %{ if additional_packages != "" ~}
 dnf install -y ${additional_packages}
 %{ endif ~}
