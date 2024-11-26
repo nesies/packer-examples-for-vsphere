@@ -277,6 +277,26 @@ and package installation.
 
 Before the build completes, the machine image is unregistered from Red Hat Subscription Manager.
 
+### Red Hat and derivative, additionnal yum repositories
+
+Then, you might want to enable repositories with:
+```
+yum_repositories = [
+  {
+     "name": "BaseOS",
+     "url": "http://url/to/baseos",
+     "install": true
+  }]
+```
+
+and add additional GPG keys for signed RPMs:
+
+```
+rpm_gpg_keys = [
+  "/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release"
+]
+```
+
 #### SUSE Customer Connect
 
 Edit the `config/scc.pkrvars.hcl` file to configure the following credentials for your SUSE Customer
