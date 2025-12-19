@@ -76,6 +76,7 @@ skipx
 %{ for gpg_key in rpm_gpg_keys ~}
 rpm --import ${gpg_key}
 %{ endfor ~}
+
 %{ if rhsm_enabled ~}
 /usr/sbin/subscription-manager register --username ${rhsm_username} --password ${rhsm_password} --autosubscribe --force
 /usr/sbin/subscription-manager repos --enable "codeready-builder-for-rhel-9-x86_64-rpms"

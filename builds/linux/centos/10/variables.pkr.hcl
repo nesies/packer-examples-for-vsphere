@@ -452,3 +452,10 @@ variable "additional_packages" {
   description = "Additional packages to install."
   default     = []
 }
+
+// Additional RPM GPG keys
+variable "rpm_gpg_keys" {
+  type        = list(string)
+  description = "Additional RPM GPG keys."
+  default = []
+}

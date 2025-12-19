@@ -68,6 +68,10 @@ skipx
 
 ### Post-installation commands.
 %post
+%{ for gpg_key in rpm_gpg_keys ~}
+rpm --import ${gpg_key}
+%{ endfor ~}
+
 dnf install -y oracle-epel-release-el8
 dnf makecache
 dnf install -y sudo open-vm-tools perl

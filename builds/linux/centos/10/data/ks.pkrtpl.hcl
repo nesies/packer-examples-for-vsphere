@@ -69,6 +69,10 @@ skipx
 
 ### Post-installation commands.
 %post
+%{ for gpg_key in rpm_gpg_keys ~}
+rpm --import ${gpg_key}
+%{ endfor ~}
+
 dnf makecache
 dnf install epel-release -y
 dnf makecache
