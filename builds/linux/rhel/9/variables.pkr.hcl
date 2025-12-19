@@ -13,6 +13,11 @@
 
 // Red Hat Subscription Manager Credentials
 
+variable "rhsm_enabled" {
+  type        = bool
+  description = "Enable Red Hat Subscription Manager."
+}
+
 variable "rhsm_username" {
   type        = string
   description = "The username to Red Hat Subscription Manager."
@@ -465,4 +470,22 @@ variable "additional_packages" {
   type        = list(string)
   description = "Additional packages to install."
   default     = []
+}
+
+// Additional RPM GPG keys
+variable "rpm_gpg_keys" {
+  type        = list(string)
+  description = "Additional RPM GPG keys."
+  default = []
+}
+
+// Additional yum repositories
+variable "yum_repositories" {
+  type        = list(object({
+    name = string
+    url = string
+    install = bool
+  }))
+  description = "Additional yum repositories"
+  default = []
 }

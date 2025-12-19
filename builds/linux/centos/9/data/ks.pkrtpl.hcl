@@ -54,6 +54,11 @@ timezone ${vm_guest_os_timezone}
 ### Partitioning
 ${storage}
 
+### Additional yum repositories
+%{ for repo in yum_repositories ~}
+repo --name=${repo.name} --baseurl=${repo.url} %{ if repo.install }--install%{ endif }
+%{ endfor ~}
+
 ### Modifies the default set of services that will run under the default runlevel.
 services --enabled=NetworkManager,sshd
 
@@ -68,6 +73,10 @@ skipx
 
 ### Post-installation commands.
 %post
+%{ for gpg_key in rpm_gpg_keys ~}
+rpm --import ${gpg_key}
+%{ endfor ~}
+
 dnf makecache
 dnf install epel-release -y
 dnf makecache
