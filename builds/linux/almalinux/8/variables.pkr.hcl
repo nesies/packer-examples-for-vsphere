@@ -458,3 +458,14 @@ variable "rpm_gpg_keys" {
   description = "Additional RPM GPG keys."
   default = []
 }
+
+// Additional yum repositories
+variable "yum_repositories" {
+  type        = list(object({
+    name = string
+    url = string
+    install = bool
+  }))
+  description = "Additional yum repositories"
+  default = []
+}
